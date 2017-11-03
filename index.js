@@ -8,29 +8,29 @@ const cronJob = require('cron').CronJob;
 const stream = T.stream('user')
 
 // this function will grab a random animal and a random breakfast item and make a meal. it will then tweet out that meal
-// function breakFast(){
-//   var test = animals();
-//   var breakfast = bf[Math.floor(Math.random()*bf.length)];
-//   var bfjuice = animals();
-//   var temp = m.drinkTemp[Math.floor(Math.random()*m.drinkTemp.length)];
-//   params = {
-//     status: 'today for breakfast @realdonaldtrump is having ' + test + '-dick ' + breakfast + ' with a tall glass of '+ temp + " "+ bfjuice + ' urine'
-//
-//   }
-//   T.post('statuses/update', params, function(err, data, response){
-//     if(err){
-//       console.log(err)
-//     }
-//     console.log("post successfull!")
-//   })
-// }
+function breakFast(){
+  var test = animals();
+  var breakfast = bf[Math.floor(Math.random()*bf.length)];
+  var bfjuice = animals();
+  var temp = m.drinkTemp[Math.floor(Math.random()*m.drinkTemp.length)];
+  params = {
+    status: 'today for breakfast @realdonaldtrump is having ' + test + '-dick ' + breakfast + ' with a tall glass of '+ temp + " "+ bfjuice + ' urine'
+
+  }
+  T.post('statuses/update', params, function(err, data, response){
+    if(err){
+      console.log(err)
+    }
+    console.log("post successfull!")
+  })
+}
 
 stream.on('follow',followed)
 
 function followed(eventMsg){
   console.log("the follow bot is starting")
   var screenName = eventMsg.source.screen_name;
-  tweetIt({status: "sup @" + screenName + " thanks for the follow we need all the support to make sure donald keeps getting his daily intake of dicks" });
+  tweetIt({status: "sup @" + screenName + " thanks for the follow I all the support I can get to make sure @realdonaldtrump keeps getting his daily intake of dicks" });
 }
 
 
@@ -45,3 +45,13 @@ function tweetIt(params){
         }
     }
 }
+
+var job = new cronJob({
+  cronTime: '00 55 11 * * 1-5',
+  onTick: function(){
+    breakFast();
+  },
+  start: false,
+  timeZone: 'America/Los_Angeles'
+});
+job.start();
