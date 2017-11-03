@@ -30,7 +30,7 @@ stream.on('follow',followed)
 function followed(eventMsg){
   console.log("the follow bot is starting")
   var screenName = eventMsg.source.screen_name;
-  tweetIt({status: "@" + screenName + "thanks for the follow we need all the support to make sure donald keeps getting his daily intake of dicks" });
+  tweetIt({status: "sup @" + screenName + " thanks for the follow we need all the support to make sure donald keeps getting his daily intake of dicks" });
 }
 
 
@@ -45,7 +45,3 @@ function tweetIt(params){
         }
     }
 }
-
-
-// breakFast();
-T.post('statuses/update', {status: "hello world!"})
