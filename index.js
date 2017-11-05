@@ -5,7 +5,7 @@ const m = require('./data/meals.js');
 const bf = m.breakfast;
 const animals = require('animals');
 const cronJob = require('cron').CronJob;
-const stream = T.stream('user')
+const stream = T.stream('user');
 
 // this function will grab a random animal and a random breakfast item and make a meal. it will then tweet out that meal
 function breakFast(){
@@ -39,7 +39,7 @@ function tweetIt(params){
         }
         else{
           console.log("it worked!!!")
-        }x
+        }
     }
 }
 
