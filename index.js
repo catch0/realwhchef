@@ -43,21 +43,6 @@ function tweetIt(params){
     }
 }
 
-//this will listen out for any mention of whchef
-var stream2 = T.stream('statuses/filter', {track: "#whchef"})
-  stream2.on('tweet', function(tweet){
-    console.log("we found a tweet...");
-    var statusObj = {status: "@" +tweet.user.screen_name + " did someone mention me? My ears are burning. Glad to see you got this working ",
-                    in_reply_to_status_id: tweet.id_str
-    }
-    T.post('statuses/update', statusObj, function(err,tweetReply, resp){
-      if(err){
-        console.log("error in posting", err)
-      }
-      console.log("it worked!!");
-      console.log(tweetReply.text);
-    });
-  });
 
 
 //this schedules when to run the breakfast function
