@@ -55,6 +55,3 @@ var job = new cronJob({
   timeZone: 'America/Los_Angeles'
 });
 job.start();
-
-breakFast();
-setInterval(breakFast, 1000*30)
