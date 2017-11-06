@@ -29,7 +29,7 @@ stream.on('follow',followed)
 function followed(eventMsg){
   console.log("the follow bot is starting")
   var screenName = eventMsg.source.screen_name;
-  tweetIt({status: "sup @" + screenName + " thanks for the follow I need all the support I can get to make sure @realdonaldtrump keeps getting his daily intake of dicks" });
+  tweetIt({status: "sup @" + screenName + " thanks 4 the follow I need support I can get to make sure @realdonaldtrump keeps getting his daily intake of dicks" });
 }
 function tweetIt(params){
       T.post('statuses/update', params, tweeted);
